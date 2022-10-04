@@ -5,14 +5,18 @@ interface IAuth {
     loading: boolean;
 }
 
+type Props = {
+  children?: React.ReactNode;
+}
+
 export const AuthContext = createContext({} as IAuth);
 
-export const AuthProvider: React.FC = ({ children}) => {
+export const AuthProvider: React.FC<Props> = ({ children}) => {
   const [signature, setSignature] = useState<boolean>(true);
   const [loading, setLoading] = useState<boolean>(true);
   
   useEffect(() => {
-    setTimeout(() => setLoading(false), 2000);
+    setTimeout(() => setLoading(false), 1000);
   })
 
   return(
