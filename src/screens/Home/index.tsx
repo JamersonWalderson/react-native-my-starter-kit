@@ -2,18 +2,29 @@ import React, { useEffect } from "react";
 import { Text, View } from "react-native";
 import { useQuery } from "react-query";
 import { api } from "../../services/service";
+import Loading from "../Loading";
+import Service from "./Service";
+import { Container, Content, Header, Title, WelcomeText } from "./style";
 
 const Login = () => {
-  const { data, error, isLoading } = useQuery(['todo'], api.getService)
+  const { data, error, isFetching } = useQuery(['service'], api.getService)
 
-  useEffect(() => {
-    console.log(data)
-    console.log(error)
-  })
+  if(isFetching) {
+    return <Loading />
+  }
+
   return(
-    <View style={{flex: 1, backgroundColor: 'red', justifyContent: 'center', alignItems: 'center'}}>
-      <Text style={{color: 'white'}}>Tela principal</Text>
-    </View>
+    <Container>
+      <Header>
+        <WelcomeText>Seja bem-vindo(a)</WelcomeText>
+      </Header>
+      <Content>
+        <Title>Lista de serviços</Title>
+        <Service />
+        <Service />
+        <Service />
+      </Content>
+    </Container>
   );
 }
 

@@ -1,13 +1,9 @@
+import { IService } from "../models/ServiceModel";
 import ApiClient from "./api";
 
-async function getService(): Promise<any>{
-  try {
-    const response =  await ApiClient.get<any>('/servicos/1/')
-    return response.data
-    
-  } catch (error) {
-    console.error(error)
-  }
+async function getService(): Promise<IService>{
+  const response =  await ApiClient.get<IService>('/servicos/1/')
+  return response.data
 }
 
 export const api = {

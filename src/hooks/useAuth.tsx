@@ -13,11 +13,8 @@ export const AuthContext = createContext({} as IAuth);
 
 export const AuthProvider: React.FC<Props> = ({ children}) => {
   const [signature, setSignature] = useState<boolean>(true);
-  const [loading, setLoading] = useState<boolean>(true);
-  
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
-  })
+  const [loading, setLoading] = useState<boolean>(false);
+
 
   return(
     <AuthContext.Provider value={{

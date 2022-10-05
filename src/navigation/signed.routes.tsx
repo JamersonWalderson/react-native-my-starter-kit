@@ -17,8 +17,8 @@ export const SignedRoutes = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Tabs" screenOptions={{headerShown: false}}>
-        {/* <Stack.Screen name="Tabs" component={TabsRouter} /> */}
-        <Stack.Screen name="Drawer" component={DrawerRoute} />
+        <Stack.Screen name="Tabs" component={TabsRouter} />
+        {/* <Stack.Screen name="Drawer" component={DrawerRoute} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
